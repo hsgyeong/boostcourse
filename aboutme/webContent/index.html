@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+html {
+	background-color: lightblue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}	
+	
+.header, .section, .footer {
+	text-align: center;
+}	
+
+.top, .footer {
+	background-color: white;
+	width: 1800px;
+	height: 100px;
+}
+
+.top {
+	align-items: right;
+}
+
+.home,.intro,.photo,.time {
+	width: 140px;
+	height: 40px;
+	float: right;
+	list-style: none;
+	background-color: darkseagreen;
+	margin-right: 25px;
+	text-align: center;
+	box-shadow: lightgray;
+	cursor: pointer;
+}	
+
+.section {
+	width: 1800px;
+	height: 680px;
+	background-color: white;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.h2, .button {
+	margin-bottom: 20px;
+}
+
+.intro-bt, .photo-bt {
+	width: 100px;
+	height: 100px;
+	background-color: darkseagreen;
+	text-align: center;
+	font-size: 20px;
+	color: white;
+	box-shadow: lightgray;
+}
+
+.intro-bt {
+	margin-right: 10px;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.dor {
+	width: 400px;
+	height: 400px;
+}
+
+.footer {
+	color: gray;
+	position: relative;
+}
+</style>
+</head>
+<body>
+	<div class="background">
+		<header class="header">
+			<div class="top">
+				<ul>
+					<li class="home">홈</li>
+					<li class="intro">자기소개</li>
+					<li class="photo">내사진</li>
+					<li class="time">몇시에요</li>
+				</ul>
+			</div>
+		</header>
+		<section class="section">
+			<div class="content">	
+				<h2 class="h2">웹프론트엔드 개발자~! crong</h2>
+				<span class="detail">
+				함께 개발하고 같이 성장하고 싶어요<br>
+				경기도 시흥시 장곡동 어딘가 살고 있어요!
+				</span>
+				<div class="button">
+					<div class="intro-bt">자기소개</div>
+					<div class="photo-bt">내사진</div>
+				</div>
+				<img src="dor.png" alt="" class="dor">
+			</div>
+		</section>
+		<footer class="footer">
+			<span class="detail">
+			sgyeong0711@gmail.com<br>
+			http://github.com/hsgyeong
+			</span>	
+		</footer>
+	</div>
+</body>
+</html>
