@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var a = 2;
+var a = "aaa";
+var a = 'aaa';
+var a = true;
+var a = [];
+var a = {};
+var a = undefined;
+var a = "I love boostcourse";
+
+
+//or 연산자 활용
+const name = "dori";
+const result = name || "codesquad";  //(or연산자) name이 있으면 name을 할당하고, 없으면 오른쪽 codesquad를 할당함
+console.log(result);
+
+//삼항연산자
+const data = 11;
+const outcome = (data>10)?"ok":"fail";
+console.log(outcome);
+
+//비교연산자
+0 == false;   //true
+"" == false;   //true
+null == false;   //false
+0 == "0";   //true 
+null == undefined;  //true
+
+//==는 암묵적으로 타입을 바꿔서 비교하려는 성질이 있다.
+//===은 정확한 타입까지 비교한다. 그렇기 때문에 ==와 ===은 결과가 다르다.
+
+function run(a){
+	console.log(typeof a)
+}
+
+run("abc")
+
+</script>
+</body>
+</html>
