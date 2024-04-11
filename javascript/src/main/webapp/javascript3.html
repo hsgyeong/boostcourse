@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	
+//함수의 호출	
+function printName(firstname){
+	var myname = "seonggyeong";
+	return "name is " + firstname;
+}
+
+console.log(printName('dori'));
+
+//(함수선언문이라고 한다.)
+
+/*
+//예1) 
+function test(){
+	console.log(printName());
+	var printName = funcion(){
+		return 'anonymous';
+	}
+}	
+
+test();
+//TypeError: printName is not a function
+*/
+
+//예2)
+function name(name){
+	var inner = function(){
+		return "inner value";
+	}
+	
+	var result = inner();
+	console.log("name is "+result);
+}
+
+name();
+
+
+//예3) 
+function name2(name){
+	var result = inner();
+	console.log(typeof inner);
+	
+	function inner(){
+		return "inner value";
+	}
+}
+
+name2();
+
+
+	
+</script>
+</body>
+</html>

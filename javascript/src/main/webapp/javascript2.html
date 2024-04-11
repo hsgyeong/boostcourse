@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	//if문 사용
+//	if(true) console.log(ture)
+//	else console.log(false)
+	
+	//삼항연산자
+	var a = "something";
+	
+	var result = (a) ? "ok" : "not ok";
+	console.log(result);
+	
+	function howMany(selectObject){
+		var numberSelected = 0;
+		for(var i=0; i<selectObject.options.length; i++){
+			if(selectObject.options[i].selected){
+				numberSelected++;
+			}
+		}
+		return numberSelected;
+	}
+	
+	
+	var arr = [1, 2, 3];
+	//var len = arr.length; (len값을 밖으로 뺄 수 있음) 
+	
+	for(var i=0, len=arr.length; i<len; i++){
+		
+	}
+	//reverse 방식으로도 함
+	
+	
+	typeof "abc";  //string
+	typeof "a";	   //string	
+	typeof 'a';    //string. string quote도 사용 가능
+	
+	var a = "ab:cd".split(":");   // ["ab", "cd"]
+	var b = "ab:cd".replace(":", "$");   //"ab$cd"
+	var c = " abcde ".trim();    // "abcde"
+	
+	console.log(a);
+	console.log(b);
+	console.log(c);
+	
+</script>
+</body>
+</html>

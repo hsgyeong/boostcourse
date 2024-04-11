@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+//함수의 호출
+function printName(firstname){
+	var myname = "seonggyeong";
+	return myname + " ,"+ firstname;
+}
+
+//22, 16, 17, 18, (10, 11, 12, 13), 18(result), 19, 20
+function run(firstname){
+	var firstname = firstname||"Queen";
+	var result = printName(firstname);  //printName을 호출
+	console.log(result);
+}
+
+run('Hong');
+//run();   만약 이렇게 아무 값도 주지 않으면 undefined(false)가 된다. 그러므로 seonggyeong, Queen이 출력된다.
+</script>
+</body>
+</html>
