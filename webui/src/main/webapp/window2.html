@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function run ( ) {      //run start와 run end가 먼저 출력되고 msg와 run......ing가 출력된다.
+     console.log("run start");
+     setTimeout(function ( ) {
+          var msg = "hello codesquad";   
+          console.log(msg);   // 이 메시지는 즉시 실행되지 않는다. 2초 뒤에 실행된다.
+          console.log("run.......ing"); 
+     }, 10000 );
+
+     console.log("run end");
+}
+
+run( );                               	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
