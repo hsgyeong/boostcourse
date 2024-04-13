@@ -1,0 +1,9 @@
+{
+	"name" : "sgyeong",
+	"age" : 26,
+	"favorites" : ["hamburger", "sandwich", "strawberry", "computer"]
+}
+
+
+
+
