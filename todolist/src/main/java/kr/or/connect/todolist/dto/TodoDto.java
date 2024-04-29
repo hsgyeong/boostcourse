@@ -9,10 +9,8 @@ public class TodoDto {
 	private String type;
 	
 	
-	public TodoDto(int sequence, long id) {
+	public TodoDto() {
 		super();
-		this.sequence = sequence;
-		this.id = id;
 	}
 
 	public long getId() {
