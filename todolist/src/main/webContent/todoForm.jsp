@@ -87,7 +87,7 @@ body {
 			<div class="section">
 				<div  class="content">
 					어떤일인가요?<br>
-					<input type="text" class="contentBox" name="content" placeholder="swift 공부하기(24자까지)"
+					<input type="text" class="contentBox" name="title" placeholder="swift 공부하기(24자까지)"
 					maxlength="24">
 				</div>
 				<div class="who">
@@ -96,13 +96,13 @@ body {
 				</div>
 				<div class="ranking">
 					우선순위를 선택하세요<br>
-					<span class="number"><input type="radio" name="number" value="1">1순위</span>
-					<span class="number"><input type="radio" name="number" value="2">2순위</span>
-					<span class="number"><input type="radio" name="number" value="3">3순위</span>
+					<span class="number"><input type="radio" name="sequence" value="1">1순위</span>
+					<span class="number"><input type="radio" name="sequence" value="2">2순위</span>
+					<span class="number"><input type="radio" name="sequence" value="3">3순위</span>
 				</div>
 			</div>
 		</section>
-		<button type="button" name="pre" id="pre" onclick="location.href='main.jsp'">&lt; &nbsp;이전</button>
+		<button type="button" name="pre" id="pre" onclick="location.href='todolist'">&lt; &nbsp;이전</button>
 		<div class="btns">	
 			<button type="submit" id="submit" id="submit">제출</button>
 			<button type="button" id="delete" id="delete">내용지우기</button>

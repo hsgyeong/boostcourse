@@ -1,7 +1,10 @@
+<%@page import="kr.or.connect.todolist.dao.TodoDao"%>
+<%@page import="kr.or.connect.todolist.dto.TodoDto"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +47,23 @@ body {
 	cursor: pointer;
 	
 }
+
+.li{
+	list-style: none;
+	width: 200px;
+	height: 80px;
+	background-color: 99FFCC;
+	align-items: center; 
+}
+
+.title {
+	font-weight: bold;
+}
+
+.card {
+	margin-top: 250px;
+	flex-direction: column;
+}
 </style>
 </head>
 <body>
@@ -55,16 +75,13 @@ body {
 	<div class="done">DONE</div>
 </div>
 
-<c:forEach items="${list }" var="item" >
-	<li>${item.title }</li><br>
-</c:forEach>
-
 </body>
 <script type="text/javascript">
 	var event = document.querySelector("#addTodo");
 	event.addEventListener("click", function(e){
 		var target = e.target;
 		window.location.href = "/todolist/todo";
+		
 	})
 </script>
 </html>

@@ -59,7 +59,7 @@ public class TodoDao {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (Exception e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		String sql = "SELECT id, title, name, sequence, type, regdate FROM todo ORDER BY regdate DESC";
@@ -93,7 +93,7 @@ public class TodoDao {
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		
+	
 		return list;
 	}
 	

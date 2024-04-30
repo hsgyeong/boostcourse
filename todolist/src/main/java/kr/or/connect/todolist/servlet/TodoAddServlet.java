@@ -35,19 +35,23 @@ public class TodoAddServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
-		String content = request.getParameter("content");
+		String title = request.getParameter("title");
 		String name = request.getParameter("name");
-		String ranking = request.getParameter("number");
+		String sequence = request.getParameter("sequence");
+		String type = request.getParameter("type");
+		String regdate = request.getParameter("regdate");
 		
 		TodoDto todoDto = new TodoDto();
-		todoDto.setTitle(content);
+		todoDto.setTitle(title);
 		todoDto.setName(name);
-		todoDto.setSequence(Integer.parseInt(ranking));
+		todoDto.setSequence(Integer.parseInt(sequence));
+		todoDto.setType(type);
+		todoDto.setRegDate(regdate);
 	
 		TodoDao todoDao = new TodoDao();   
 		todoDao.addTodo(todoDto);
 		
-		response.sendRedirect("main.jsp");
+		response.sendRedirect("todolist");
 		
 	}
 
