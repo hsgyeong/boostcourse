@@ -75,23 +75,6 @@ body {
 </style>
 </head>
 <body>
-<script type="text/javascript">
-	var remove = document.querySelector("#delete");
-	remove.addEventListener("click", function(e){
-		var form = document.querySelector("form");
-		var input = form.querySelectorAll("input");
-		input.forEach(function(input){
-			if(input.type==="radio"){
-				if(input.checked){
-					input.checked=false;
-				}
-			}else{
-				input.value="";
-			}
-			input.value="";
-		});
-	})
-</script>
 <div>
 	<form action="todo" method="post">
 		<header>
@@ -118,10 +101,26 @@ body {
 		</section>
 		<button type="button" name="pre" id="pre" onclick="location.href='todolist'">&lt; &nbsp;이전</button>
 		<div class="btns">	
-			<button type="submit" id="submit" name="submit">제출</button>
-			<button type="button" id="delete" name="delete">내용지우기</button>
+			<button type="submit" id="submit" class="submit">제출</button>
+			<button type="button" id="delete" class="delete">내용지우기</button>
 		</div>
 	</form>
 </div>
+<script type="text/javascript">
+	var remove = document.querySelector("#delete");
+	remove.addEventListener("click", function(e){
+		var form = document.querySelector("form");
+		var input = form.querySelectorAll("input");
+		input.forEach(function(input){
+			if(input.type==="radio"){
+				if(input.checked){
+					input.checked=false;
+				}
+			}else{
+				input.value="";
+			}
+		});
+	})
+</script>
 </body>
 </html>
