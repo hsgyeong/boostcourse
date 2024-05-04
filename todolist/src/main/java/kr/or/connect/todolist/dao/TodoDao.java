@@ -97,7 +97,7 @@ public class TodoDao {
 		return list;
 	}
 	
-public void updateTodo(TodoDto dto) {
+	public void updateTodo(TodoDto dto) {
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -135,4 +135,4 @@ public void updateTodo(TodoDto dto) {
 			}
 		}
 	}
-}
+	}

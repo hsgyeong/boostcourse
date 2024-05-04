@@ -84,16 +84,16 @@ body {
 			<div class="section">
 				<div  class="content">
 					어떤일인가요?<br>
-					<input type="text" class="contentBox" name="title" placeholder="swift 공부하기(24자까지)"
+					<input type="text" class="contentBox" name="title" required="required" placeholder="swift 공부하기(24자까지)"
 					maxlength="24">
 				</div>
 				<div class="who">
 					누가 할일인가요?<br>
-					<input type="text" class="whoBox" name="name" placeholder="김도리">
+					<input type="text" class="whoBox" required="required" name="name" placeholder="김도리">
 				</div>
 				<div class="ranking">
 					우선순위를 선택하세요<br>
-					<span class="number"><input type="radio" name="sequence" value="1">1순위</span>
+					<span class="number"><input type="radio" name="sequence" value="1" required>1순위</span>
 					<span class="number"><input type="radio" name="sequence" value="2">2순위</span>
 					<span class="number"><input type="radio" name="sequence" value="3">3순위</span>
 				</div>
@@ -121,6 +121,8 @@ body {
 			}
 		});
 	})
+	
+	
 </script>
 </body>
 </html>

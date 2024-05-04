@@ -60,9 +60,15 @@ body {
 	font-weight: bold;
 }
 
-.card {
+.content {
 	margin-top: 250px;
 	flex-direction: column;
+}
+
+.card {
+	margin-bottom:  30px;
+	width: 200px;
+	height: 80px;
 }
 </style>
 </head>
@@ -71,9 +77,16 @@ body {
 
 <div class="list">
 	<div class="todo">TODO</div>
+		<div class="content">
+			<c:forEach items="${list}" var="item">
+				<div class="card">${item }</div><br>
+			</c:forEach>
+		</div>
 	<div class="doing">DOING</div>
 	<div class="done">DONE</div>
 </div>
+
+
 
 </body>
 <script type="text/javascript">
@@ -83,5 +96,6 @@ body {
 		window.location.href = "/todolist/todo";
 		
 	})
+	
 </script>
 </html>
