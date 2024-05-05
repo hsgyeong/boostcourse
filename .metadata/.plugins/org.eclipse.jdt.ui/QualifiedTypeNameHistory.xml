@@ -20,10 +20,10 @@
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="kr.or.connect.todolist.dao.TodoDao"/>
-    <fullyQualifiedTypeName name="kr.or.connect.todolist.dto.TodoDto"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="java.lang.ClassNotFoundException"/>
+    <fullyQualifiedTypeName name="kr.or.connect.todolist.dto.TodoDto"/>
+    <fullyQualifiedTypeName name="kr.or.connect.todolist.dao.TodoDao"/>
 </qualifiedTypeNameHistroy>

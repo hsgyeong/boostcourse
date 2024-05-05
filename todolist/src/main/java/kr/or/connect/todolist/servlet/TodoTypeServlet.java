@@ -7,13 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.connect.todolist.dao.TodoDao;
+import kr.or.connect.todolist.dto.TodoDto;
 
-@WebServlet("/moving")
-public class MoveCardServlet extends HttpServlet {
+
+@WebServlet("/type")
+public class TodoTypeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-    public MoveCardServlet() {
+    public TodoTypeServlet() {
         super();
         
     }
@@ -22,6 +25,20 @@ public class MoveCardServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
+		String type = request.getParameter("type");
+		String id = request.getParameter("id");
+		
+		System.out.println(type);
+		System.out.println(id);
+	
+		TodoDto todoDto = new TodoDto();
+		
+		todoDto.setType(type);
+		todoDto.setId(Long.parseLong(id));
+		
+		TodoDao todoDao = new TodoDao();
+		
+		todoDao.updateTodo(todoDto);
 		
 	}
 

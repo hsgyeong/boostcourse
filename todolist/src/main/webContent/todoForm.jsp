@@ -121,8 +121,6 @@ body {
 			}
 		});
 	})
-	
-	
 </script>
 </body>
 </html>

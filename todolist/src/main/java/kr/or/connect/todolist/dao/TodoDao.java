@@ -106,13 +106,23 @@ public class TodoDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		
 			conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
-			String sql = "UPDATE todo SET title = ?, name = ?, sequence = ? WHERE  id = ?";
+			
+			String type;
+			
+			if(dto.getType().equals("TODO")) {
+				type = "DOING";
+			}else if(dto.getType().equals("DOING")) {
+				type = "DONE";
+			}else{
+				return;
+			}
+			
+			String sql = "UPDATE todo SET type = ? where id = ?"; 
 			
 			ps = conn.prepareStatement(sql);
 			
-			ps.setString(1, dto.getTitle());
-			ps.setString(2, dto.getName());
-			ps.setInt(3, dto.getSequence());
+			ps.setString(1, type);
+			ps.setLong(2, dto.getId());
 			
 			ps.execute();
 			
@@ -135,4 +145,6 @@ public class TodoDao {
 			}
 		}
 	}
-	}
+
+	
+}

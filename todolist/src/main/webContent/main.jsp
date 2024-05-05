@@ -100,7 +100,7 @@ body {
 							${item.title }<br>
 							${item.regDate } , &nbsp; ${item.name } , 우선순위 ${item.sequence }
 						</div>
-						<button class="nextBt">→</button>
+						<button class="nextBt" onclick="updateType('${item.type}', '${item.id}')">→</button>
 					</div><br>
 				</c:forEach>	
 			</div>
@@ -113,11 +113,28 @@ body {
 <script type="text/javascript">
 	var event = document.querySelector("#addTodo");
 	event.addEventListener("click", function(e){
-		var target = e.target;
-		window.location.href = "/todolist/todo";
+	var target = e.target;
+	window.location.href = "/todolist/todo";
 		
 	})
 	
-	
+
+	function updateType(type, id){
+		
+		console.log(type);
+		console.log(id);
+		
+		var type = encodeURIComponent(type);
+		var id = encodeURIComponent(id);
+				
+		var xhr = new XMLHttpRequest();
+		
+		xhr.open("POST", "/todolist/type", true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		
+		var params = "type=" + type + "&id=" + id;
+		xhr.send(params);
+	}
+
 </script>
 </html>
