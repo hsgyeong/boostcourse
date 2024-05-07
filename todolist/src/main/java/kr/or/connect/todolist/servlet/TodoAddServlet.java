@@ -34,29 +34,21 @@ public class TodoAddServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html' charset=utf-8");
 		
 		String title = request.getParameter("title");
 		String name = request.getParameter("name");
-		String sequence = request.getParameter("sequence");
-		String type = request.getParameter("type");
-		String regdate = request.getParameter("regdate");
+		int sequence = Integer.parseInt(request.getParameter("sequence"));
 		
-		TodoDto todoDto = new TodoDto();
-		todoDto.setTitle(title);
-		todoDto.setName(name);
-		todoDto.setSequence(Integer.parseInt(sequence));
-		todoDto.setType(type);
-		todoDto.setRegDate(regdate);
-	
 		TodoDao todoDao = new TodoDao();   
-		todoDao.addTodo(todoDto);
 		
-		response.sendRedirect("todolist");
+		int insertCount = todoDao.addTodo(title, name, sequence);
+		
+		String path = request.getContextPath();
+		
+		response.sendRedirect(path+"/todolist");
 		
 	}
 
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
 
 }
