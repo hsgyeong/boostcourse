@@ -28,7 +28,7 @@ header {
 
 .top {
 	display: inline-block;
-	margin-left: 190px;
+	margin-left: 100px;
 	transform: rotate(-35deg);
 	font-size: 24px;
 	font-weight: bold;
@@ -38,16 +38,15 @@ header {
 
 .part {
 	display: flex;
+	vertical-align: middle;
 	align-items: center;
-	justify-content: center;
-	height: 100px;
-	/* min-height: 200px; */
+	justify-content: flex-start;
+	height: 90px;
 	width: 350px;
 	flex-direction: column;
-	vertical-align: middle;
 	margin-right: 10px;
 	border: 1px solid red;
-	
+	margin-bottom: -8px;
 }
 
 .part > div {
@@ -55,9 +54,7 @@ header {
 }
 
 .todoTitle, .doingTitle, .doneTitle {
-	position: relative;
-	display: inline-block;
-	align-items: center;
+	display: flex;
 	width: 100%;
 	height: 100%;
 	font-weight: bold;
@@ -65,9 +62,9 @@ header {
 	font-family: 'Malgun Gothic';
 	background-color: #008080;
 	font-size: 24px; 
-	vertical-align: middle;
 	flex-direction: column; 
 	margin-left: 10px;
+	justify-content: center;
 }
 .addBtn {
 	width: 150px;
@@ -97,18 +94,26 @@ h3 {
 }
 
 ul {
-  display: flex;
-  flex-direction: column; 
-  width: 350px;
-  list-style-type: none; 
-  padding: 0; 
-  border: 1px solid gray;
-  margin-top: 10px;
+	display: flex;
+	flex-direction: column; 
+	width: 350px;
+	list-style-type: none; 
+	padding: 0; 
+}
+
+li {
+	border: 1px solid gray;
+	margin-bottom: 10px;
 }
 
 .firstSection, .secondSection, .thirdSection {
 	flex-direction: column;
 }
+
+.title {
+	margin-left: 30px;
+}
+
 </style>
 </head>
 <body>
@@ -122,42 +127,42 @@ ul {
 	<div class="allSection">	
 		<div class="firstSection">
 			<div class="part">
-				<div class="todoTitle">TODO</div>
+				<div class="todoTitle"><span class="title">TODO</span></div>
 			</div>	
 			<ul id="todo">
 				<c:forEach items="${todoList }" var="todo">
 					<li id="${todo.id }">
 						<h3>${todo.title }</h3>
 						<p>등록날짜: ${todo.regDate }, ${todo.name }, 우선순위 ${todo.sequence }</p>
-						<button class="nextBtn" onclick="updateType('${todo.type}, ${todo.id }')">→</button>
+						<button class="nextBtn" onclick="updateType('${todo.type}', '${todo.id }')">→</button>
 					</li>
 				</c:forEach>
 			</ul>
 		</div>
 		<div class="secondSection">
 			<div class="part">
-				<div class="doingTitle">DOING</div>
+				<div class="doingTitle"><span class="title">DOING</span></div>
 			</div>
 			<ul id="doing">
 				<c:forEach items="${doingList }" var="doing">
 					<li id="${doing.id }">
 						<h3>${doing.title }</h3>
 						<p>등록날짜: ${doing.regDate }, ${doing.name }, 우선순위 ${doing.sequence }</p>
-						<button class="nextBtn" onclick="updateType('${doing.type}, ${doing.id }')">→</button>
+						<button class="nextBtn" onclick="updateType('${doing.type}', '${doing.id }')">→</button>
 					</li>
 				</c:forEach>
 			</ul>
 		</div>
 		<div class="thirdSection">
 			<div class="part">
-				<div class="doneTitle">DONE</div>
+				<div class="doneTitle"><span class="title">DONE</span></div>
 			</div>	
 				<ul id="done">
 				<c:forEach items="${doneList }" var="done">
 					<li id="${done.id }">
 						<h3>${done.title }</h3>
 						<p>등록날짜: ${done.regDate }, ${done.name }, 우선순위 ${done.sequence }</p>
-						<button class="nextBtn" onclick="updateType('${done.type}, ${done.id }')">→</button>
+						<button class="nextBtn" onclick="updateType('${done.type}', '${done.id }')">→</button>
 					</li>
 				</c:forEach>
 			</ul>
