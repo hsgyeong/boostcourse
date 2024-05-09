@@ -30,10 +30,9 @@ public class TodoTypeServlet extends HttpServlet {
 		System.out.println(id);
 		
 		todoDao.updateTodo(type, id);
-		String path = request.getContextPath();
+	/*	String path = request.getContextPath();
 		
-		response.sendRedirect(path+"/todolist");
-		
+		response.sendRedirect(path+"/todolist"); */
 		
 	}
 

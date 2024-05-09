@@ -11,164 +11,122 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-body, .all {
-	position: relative;
-}
-
 header {
-	position: relative;
-
+	display: flex;
+	margin-top: 50px;
+	justify-content: space-between;
 }
 
-.new {
-	position: relative;
-	text-align: right;
-	width: 675px;
-}
-
-.top {
-	display: inline-block;
-	margin-left: 100px;
+h1 {
 	transform: rotate(-35deg);
-	font-size: 24px;
-	font-weight: bold;
 	color: #008080;
-	margin-top: 100px;
-}
-
-.part {
-	display: flex;
-	vertical-align: middle;
-	align-items: center;
-	justify-content: flex-start;
-	height: 90px;
-	width: 350px;
-	flex-direction: column;
-	margin-right: 10px;
-	border: 1px solid red;
-	margin-bottom: -8px;
-}
-
-.part > div {
-	margin-right: 10px;
-}
-
-.todoTitle, .doingTitle, .doneTitle {
-	display: flex;
-	width: 100%;
-	height: 100%;
 	font-weight: bold;
-	color: white;
-	font-family: 'Malgun Gothic';
-	background-color: #008080;
-	font-size: 24px; 
-	flex-direction: column; 
-	margin-left: 10px;
-	justify-content: center;
 }
+
 .addBtn {
-	width: 150px;
-	height: 30px;
+	justify-content: flex-end;
+	width: 280px;
+	height: 40px;
 	background-color: #00BFFF;
-	font-weight: bold;
 	color: white;
+	border-color: none;
+	margin-right: 180px;
+	font-size: 15px;
+	font-weight: bold;
 	border: none;
 	cursor: pointer;
-	position: absolute;
-	margin-left: 345px;
-	margin-top: -50px;
 }
 
-.nextBtn {
-	float: right;
-}
-
-.allSection {
+.container {
 	display: flex;
-	align-items: stretch;
 	justify-content: center;
-}
-
-h3 {
-	font-weight: bold;
-}
-
-ul {
-	display: flex;
-	flex-direction: column; 
-	width: 350px;
-	list-style-type: none; 
-	padding: 0; 
-}
-
-li {
-	border: 1px solid gray;
-	margin-bottom: 10px;
-}
-
-.firstSection, .secondSection, .thirdSection {
-	flex-direction: column;
 }
 
 .title {
-	margin-left: 30px;
+	width: 430px;
+	height: 80px; 
+	margin-bottom: 10px;
+	margin-right: 10px;
+	align-items: center;
+	vertical-align: middle;
+	font-weight: bold;
+	background-color: #008080;
+	color: white;
+	display: flex;
+	font-family: sans-serif;
+	font-size: 25px;
 }
 
+li {
+	list-style: none;
+	width: 430px;
+	height: 130px;
+	margin-bottom: 10px;
+	background-color: #ADD8E6;
+}
+
+.nextBtn { 
+	float: right;
+	margin-right: 20px;
+}
+
+.todoTitle, .doingTitle, .doneTitle {
+	margin-left: 20px;
+}
+
+p {
+	margin-left: 20px;
+}
+
+h3 {
+	margin-left: 20px;
+}
 </style>
 </head>
 <body>
-  <div class="all">	
+  
   	<header>	
-	  	<span class="top">나의 해야 할 일들</span>
-	</header>
-	<div class="new">
+	  	<h1><span class="todo">나의 해야 할 일들</span></h1>
 		<button type="button" id="addTodo" class="addBtn">새로운 TODO 등록</button>
-	</div>
-	<div class="allSection">	
-		<div class="firstSection">
-			<div class="part">
-				<div class="todoTitle"><span class="title">TODO</span></div>
-			</div>	
-			<ul id="todo">
-				<c:forEach items="${todoList }" var="todo">
-					<li id="${todo.id }">
-						<h3>${todo.title }</h3>
-						<p>등록날짜: ${todo.regDate }, ${todo.name }, 우선순위 ${todo.sequence }</p>
-						<button class="nextBtn" onclick="updateType('${todo.type}', '${todo.id }')">→</button>
+	</header>
+	<div class="container">
+		<div id="TODO" class="main">
+			<div class="title"><span class="todoTitle">TODO</span></div>
+			<div class="content">
+				 <c:forEach items="${todoList }" var="item">
+					<li id="${item.id }">
+						<h3>${item.title }</h3>
+						<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence }</p>
+						<button class="nextBtn" onclick="updateType('TODO', '${item.id }');">→</button>
 					</li>
 				</c:forEach>
-			</ul>
-		</div>
-		<div class="secondSection">
-			<div class="part">
-				<div class="doingTitle"><span class="title">DOING</span></div>
 			</div>
-			<ul id="doing">
-				<c:forEach items="${doingList }" var="doing">
-					<li id="${doing.id }">
-						<h3>${doing.title }</h3>
-						<p>등록날짜: ${doing.regDate }, ${doing.name }, 우선순위 ${doing.sequence }</p>
-						<button class="nextBtn" onclick="updateType('${doing.type}', '${doing.id }')">→</button>
+		</div>		 
+		<div id="DOING" class="main">
+			<div class="title"><span class="doingTitle">DOING</span></div>	
+			 <div class="content">
+				 <c:forEach items="${doingList }" var="item">
+					<li id="${item.id }">
+						<h3>${item.title }</h3>
+						<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence }</p>
+						<button class="nextBtn" onclick="updateType('DOING', '${item.id }');">→</button>
 					</li>
 				</c:forEach>
-			</ul>
+			</div>
 		</div>
-		<div class="thirdSection">
-			<div class="part">
-				<div class="doneTitle"><span class="title">DONE</span></div>
-			</div>	
-				<ul id="done">
-				<c:forEach items="${doneList }" var="done">
-					<li id="${done.id }">
-						<h3>${done.title }</h3>
-						<p>등록날짜: ${done.regDate }, ${done.name }, 우선순위 ${done.sequence }</p>
-						<button class="nextBtn" onclick="updateType('${done.type}', '${done.id }')">→</button>
+		<div id="DONE" class="main">		 
+			<div class="title"><span class="doneTitle">DONE</span></div>	
+			<div class="content">
+				<c:forEach items="${doneList }" var="item">
+					<li id="${item.id }">
+						<h3>${item.title }</h3>
+						<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence }</p>
+						<button class="nextBtn" onclick="updateType('DONE', '${item.id }');">→</button>
 					</li>
 				</c:forEach>
-			</ul>
-		</div>	
-	</div>	
-  </div>
+			</div>	
+		</div>		
+	</div>		
 </body>
 <script type="text/javascript">
 	var event = document.querySelector("#addTodo");
@@ -190,6 +148,21 @@ li {
 		console.log(id);
 		
 		var xhr = new XMLHttpRequest();
+		
+		var selectType = (type === 'TODO') ? 'DOING' : 'DONE';
+		
+		xhr.addEventListener("load", function(){
+			if(xhr.status === 200){
+				console.log("success");
+				var parent = document.getElementById(selectType);
+				var item = document.getElementById(id);
+				if(selectType === 'DOING'){
+					var button = "<input class=\"main-content-btn\" type=\"button\" onclick=\"updateType(" + selectType + ", \'" + id + "\');\" value=\"→\"/>";
+					item.insertAdjacentHTML('before', button);
+				}
+				parent.appendChild(item);
+			}
+		});
 		
 		xhr.open("POST", "/todolist/type", true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

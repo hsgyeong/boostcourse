@@ -67,7 +67,93 @@ public class TodoDao {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		String sql = "SELECT id, title, name, sequence, type, regdate FROM todo ORDER BY regdate DESC";
+		String sql = "SELECT id, title, name, sequence, type, regdate FROM todo WHERE type = 'TODO' ORDER BY regdate DESC";
+		
+		try(Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
+			PreparedStatement ps = conn.prepareStatement(sql)){
+			
+			try(ResultSet rs = ps.executeQuery()){
+				while(rs.next()) {
+				Long id = rs.getLong("id");
+				String title = rs.getString("title");
+				String name = rs.getString("name");
+				int sequence = rs.getInt("sequence");
+				String type = rs.getString("type");
+				String regDate = rs.getString("regdate");
+				
+				TodoDto dto = new TodoDto();
+				
+				dto.setId(id);
+				dto.setTitle(title);
+				dto.setName(name);
+				dto.setSequence(sequence);
+				dto.setType(type);
+				dto.setRegDate(regDate);
+				
+				list.add(dto);
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	
+		return list;
+	}
+	
+	public List<TodoDto> getDoing() {
+		List<TodoDto> list = new ArrayList<>();
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		String sql = "SELECT id, title, name, sequence, type, regdate FROM todo WHERE type = 'DOING' ORDER BY regdate DESC";
+		
+		try(Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
+			PreparedStatement ps = conn.prepareStatement(sql)){
+			
+			try(ResultSet rs = ps.executeQuery()){
+				while(rs.next()) {
+				Long id = rs.getLong("id");
+				String title = rs.getString("title");
+				String name = rs.getString("name");
+				int sequence = rs.getInt("sequence");
+				String type = rs.getString("type");
+				String regDate = rs.getString("regdate");
+				
+				TodoDto dto = new TodoDto();
+				
+				dto.setId(id);
+				dto.setTitle(title);
+				dto.setName(name);
+				dto.setSequence(sequence);
+				dto.setType(type);
+				dto.setRegDate(regDate);
+				
+				list.add(dto);
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	
+		return list;
+	}
+	
+	public List<TodoDto> getDone() {
+		List<TodoDto> list = new ArrayList<>();
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		String sql = "SELECT id, title, name, sequence, type, regdate FROM todo WHERE type = 'DONE' ORDER BY regdate DESC";
 		
 		try(Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 			PreparedStatement ps = conn.prepareStatement(sql)){

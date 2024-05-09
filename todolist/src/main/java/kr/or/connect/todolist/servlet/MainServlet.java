@@ -3,7 +3,9 @@ package kr.or.connect.todolist.servlet;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.servlet.RequestDispatcher;
@@ -36,11 +38,11 @@ public class MainServlet extends HttpServlet {
 		
 		TodoDao todoDao = new TodoDao();
 		
-		List<TodoDto> totalList = todoDao.getTodo();
-		List<TodoDto> todoList = new ArrayList<>();
-		List<TodoDto> doingList = new ArrayList<>();
-		List<TodoDto> doneList = new ArrayList<>();
-		
+		List<TodoDto> todoList = todoDao.getTodo();
+		List<TodoDto> doingList = todoDao.getDoing();
+		List<TodoDto> doneList = todoDao.getDone();
+	
+		/*
 		for(TodoDto todo : totalList) {
 			String todoType = todo.getType();
 			switch(todoType) {
@@ -57,12 +59,13 @@ public class MainServlet extends HttpServlet {
 				break;
 			}
 		}
+		*/
+		  request.setAttribute("todoList", todoList); 
+		  request.setAttribute("doingList", doingList); 
+		  request.setAttribute("doneList", doneList);
 		
-		request.setAttribute("todoList", todoList);
-		request.setAttribute("doingList", doingList);
-		request.setAttribute("doneList", doneList);
+		  RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
+		  rd.forward(request, response);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
-		rd.forward(request, response);
 	}
 }
