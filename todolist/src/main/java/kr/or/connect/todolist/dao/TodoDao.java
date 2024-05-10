@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,7 +80,8 @@ public class TodoDao {
 				String name = rs.getString("name");
 				int sequence = rs.getInt("sequence");
 				String type = rs.getString("type");
-				String regDate = rs.getString("regdate");
+				Timestamp timeStamp = rs.getTimestamp("regdate");
+				String regDate = new SimpleDateFormat("yyyy.MM.dd").format(timeStamp);
 				
 				TodoDto dto = new TodoDto();
 				
@@ -122,7 +124,8 @@ public class TodoDao {
 				String name = rs.getString("name");
 				int sequence = rs.getInt("sequence");
 				String type = rs.getString("type");
-				String regDate = rs.getString("regdate");
+				Timestamp timeStamp = rs.getTimestamp("regdate");
+				String regDate = new SimpleDateFormat("yyyy.MM.dd").format(timeStamp);
 				
 				TodoDto dto = new TodoDto();
 				
@@ -165,7 +168,8 @@ public class TodoDao {
 				String name = rs.getString("name");
 				int sequence = rs.getInt("sequence");
 				String type = rs.getString("type");
-				String regDate = rs.getString("regdate");
+				Timestamp timeStamp = rs.getTimestamp("regdate");
+				String regDate = new SimpleDateFormat("yyyy.MM.dd").format(timeStamp);
 				
 				TodoDto dto = new TodoDto();
 				

@@ -4,7 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +67,7 @@ li {
 .nextBtn { 
 	float: right;
 	margin-right: 20px;
+	margin-left: 40px;
 }
 
 .todoTitle, .doingTitle, .doneTitle {
@@ -78,13 +78,31 @@ p {
 	margin-left: 20px;
 }
 
-h3 {
-	margin-left: 20px;
+.item {
+	margin-left: 38px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 80px;
+}
+
+li {
+	padding: 50px 0px 0px 0px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.content {
+	align-items: center;
+	display: flex;
+	margin-left: 15px;
+}
+
+.card { 
+	align-items: center;
 }
 </style>
 </head>
 <body>
-  
   	<header>	
 	  	<h1><span class="todo">나의 해야 할 일들</span></h1>
 		<button type="button" id="addTodo" class="addBtn">새로운 TODO 등록</button>
@@ -92,36 +110,39 @@ h3 {
 	<div class="container">
 		<div id="TODO" class="main">
 			<div class="title"><span class="todoTitle">TODO</span></div>
-			<div class="content">
+			<div class="card"> 
 				 <c:forEach items="${todoList }" var="item">
 					<li id="${item.id }">
-						<h3>${item.title }</h3>
-						<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence }</p>
-						<button class="nextBtn" onclick="updateType('TODO', '${item.id }');">→</button>
+						<span class="item">${item.title }</span><br>
+						<div class="content">
+							<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence }  <button class="nextBtn" style="height: 25px;" onclick="updateType('TODO', '${item.id }');">→</button></p>
+						</div>
 					</li>
 				</c:forEach>
-			</div>
+			</div>	
 		</div>		 
 		<div id="DOING" class="main">
-			<div class="title"><span class="doingTitle">DOING</span></div>	
-			 <div class="content">
+			<div class="title"><span class="doingTitle">DOING</span></div>				 
+			<div class="card">	 
 				 <c:forEach items="${doingList }" var="item">
 					<li id="${item.id }">
-						<h3>${item.title }</h3>
-						<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence }</p>
-						<button class="nextBtn" onclick="updateType('DOING', '${item.id }');">→</button>
+						<span class="item">${item.title }</span><br>
+						<div class="content">
+							<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence } <button class="nextBtn" onclick="updateType('DOING', '${item.id }');">→</button></p>
+						</div>
 					</li>
 				</c:forEach>
-			</div>
+			</div>	
 		</div>
 		<div id="DONE" class="main">		 
 			<div class="title"><span class="doneTitle">DONE</span></div>	
-			<div class="content">
+			<div class="card">	
 				<c:forEach items="${doneList }" var="item">
 					<li id="${item.id }">
-						<h3>${item.title }</h3>
-						<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence }</p>
-						<button class="nextBtn" onclick="updateType('DONE', '${item.id }');">→</button>
+						<span class="item">${item.title }</span><br>
+						<div class="content">
+							<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence } <button class="nextBtn" onclick="updateType('DONE', '${item.id }');">→</button></p>
+						</div>
 					</li>
 				</c:forEach>
 			</div>	
@@ -158,7 +179,7 @@ h3 {
 				var item = document.getElementById(id);
 				if(selectType === 'DOING'){
 					var button = "<input class=\"main-content-btn\" type=\"button\" onclick=\"updateType(" + selectType + ", \'" + id + "\');\" value=\"→\"/>";
-					item.insertAdjacentHTML('before', button);
+					item.insertAdjacentHTML('beforeEnd', button);
 				}
 				parent.appendChild(item);
 			}
@@ -170,6 +191,6 @@ h3 {
 		var params = "type=" + type + "&id=" + id;
 		xhr.send(params);
 	};
-
+	
 </script>
 </html>
