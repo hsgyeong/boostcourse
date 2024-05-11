@@ -179,8 +179,8 @@ li {
 				var parent = document.getElementById(selectType);
 				var item = document.getElementById(id);
 				if(selectType === 'DOING'){
-					var button = "<input class=\"main-content-btn\" type=\"button\" onclick=\"updateType(" + selectType + ", \'" + id + "\');\" value=\"→\"/>";
-					item.insertAdjacentHTML('beforeEnd', button);
+					var button = item.querySelector('.nextBtn');
+					button.setAttribute("onclick", "updateType('DOING','" + id + "');");
 				}
 				parent.appendChild(item);
 			}
