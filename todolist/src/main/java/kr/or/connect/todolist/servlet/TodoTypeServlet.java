@@ -30,7 +30,6 @@ public class TodoTypeServlet extends HttpServlet {
 		System.out.println(id);
 		
 		todoDao.updateTodo(type, id);
-	
 		
 	}
 

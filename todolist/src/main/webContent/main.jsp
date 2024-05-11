@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,52 +112,40 @@ li {
 		<div id="TODO" class="main">
 			<div class="title"><span class="todoTitle">TODO</span></div>
 			<div class="card"> 
-				<c:if test="${not empty todoList }">
-					 <c:forEach items="${todoList }" var="item">
-						<li id="${item.id }">
-							<span class="item">${item.title }</span><br>
-							<div class="content">
-								<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence }  <button class="nextBtn" style="height: 25px;" onclick="updateType('TODO', '${item.id }');">→</button></p>
-							</div>
-						</li>
-					</c:forEach>
-				</c:if>		
-				<c:if test="${empty todoList }">
-				</c:if>
+				 <c:forEach items="${todoList }" var="item">
+					<li id="${item.id }">
+						<span class="item">${item.title }</span><br>
+						<div class="content">
+							<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence }  <button class="nextBtn" style="height: 25px;" onclick="updateType('TODO','${item.id }');">→</button></p>
+						</div>
+					</li>
+				</c:forEach>
 			</div>	
 		</div>		 
 		<div id="DOING" class="main">
 			<div class="title"><span class="doingTitle">DOING</span></div>				 
 			<div class="card">	 
-				<c:if test="${not empty doingList }">
-				 	<c:forEach items="${doingList }" var="item">
-						<li id="${item.id }">
-							<span class="item">${item.title }</span><br>
-							<div class="content">
-								<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence } <button class="nextBtn" onclick="updateType('DOING', '${item.id }');">→</button></p>
-							</div>
-						</li>
-					</c:forEach>
-				</c:if>	
-				<c:if test="${empty doingList }">
-				</c:if>
+				<c:forEach items="${doingList }" var="item">
+					<li id="${item.id }">
+						<span class="item">${item.title }</span><br>
+						<div class="content">
+							<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence } <button class="nextBtn" onclick="updateType('DOING','${item.id }');">→</button></p>
+						</div>
+					</li>
+				</c:forEach>
 			</div>	
 		</div>
 		<div id="DONE" class="main">		 
 			<div class="title"><span class="doneTitle">DONE</span></div>	
 			<div class="card">	
-				<c:if test="${not empty doneList }">
-					<c:forEach items="${doneList }" var="item">
-						<li id="${item.id }">
-							<span class="item">${item.title }</span><br>
-							<div class="content">
-								<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence } <button class="nextBtn" onclick="updateType('DONE', '${item.id }');">→</button></p>
-							</div>
-						</li>
-					</c:forEach>
-				</c:if>
-				<c:if test="${empty doneList }">
-				</c:if>	
+				<c:forEach items="${doneList }" var="item">
+					<li id="${item.id }">
+						<span class="item">${item.title }</span><br>
+						<div class="content">
+							<p>등록날짜: ${item.regDate }, ${item.name }, 우선순위 ${item.sequence } <button class="nextBtn" onclick="updateType('DONE','${item.id}');">→</button></p>
+						</div>
+					</li>
+				</c:forEach>
 			</div>	
 		</div>		
 	</div>		
