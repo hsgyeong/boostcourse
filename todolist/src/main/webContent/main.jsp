@@ -30,7 +30,7 @@ h1 {
 	background-color: #00BFFF;
 	color: white;
 	border-color: none;
-	margin-right: 180px;
+	margin-right: 195px;
 	font-size: 15px;
 	font-weight: bold;
 	border: none;

@@ -11,6 +11,7 @@ INDEX VERSION 1.4+C:\Users\sksk0\Desktop\boostcourse\.metadata\.plugins\org.ecli
 3389034366.index
 4138082403.index
 918193464.index
+0.index
 3988807388.index
 599862643.index
 582100405.index
