@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	
+	var obj = {name : "SeongGyeong", age: 28}
+	
+	var myFriend = {key : "value", addition : [
+		{name:'dori'},{age:2}
+	]};
+	
+	console.log(myFriend.addition[0].name);
+	
+	
+//  console.log(myFriend.addition);	
+//	console.log(myFriend.key);
+//	console.log(myFriend["key"]);
+	
+	for(key in myFriend){
+		console.log(myFriend[key]);
+	}
+	
+	var obj = {"name":"SeongGyeong", age:28, data:[1,2,3,4,5]};
+	
+	for(value in obj){
+		console.log(obj[value]);
+	}
+	
+//	console.log(Object.keys(myFriend));
+
+	Object.keys(myFriend).forEach(function(v){
+		console.log(myFriend[v]);
+	});
+	
+	
+	const myInfo = {key : "value"};
+	console.log(myInfo.key);
+	
+	//추가
+	myInfo.age = 34;
+	console.log(myInfo.age);
+	
+</script>
+</body>
+</html>
