@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<p>동해물과 백두산이 마르고 닳도록</p>
+	<p>무궁화 삼천리 화려 강산</p>
+</div>
+</body>
+<script>
+	
+var base = document.querySelector("div");
+base.insertAdjacentHTML("afterbegin", "<h2>우리나라 만세</h2>");
+var base2 = document.querySelector("p:nth-child(3)");
+base2.insertAdjacentHTML("beforebegin", "<p>하느님이 보우하사 우리나라 만세</p>");
+
+</script>
+</html>
