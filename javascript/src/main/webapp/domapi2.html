@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<section>	
+<h2>blue section</h2>
+<ul>
+	<li class="green blue">apple</li>
+	<li class="red">orange</li>
+	<li>banana</li>
+	<li>grape</li>
+	<li>strawberry</li>
+</ul>
+</section>
+</body>
+<script>
+	var bluenode = document.querySelectorAll("section .blue");
+	console.log(bluenode);
+/*	
+	for(var i=0; i<bluenode.length; i++){
+		var section = bluenode[i].closest("section");
+		console.log(section);
+		var h2 = section.querySelector("h2");
+		console.log(h2);
+		section.removeChild(h2);
+	}
+*/	
+	Array.from(bluenode).forEach((function(v){
+		var section = v.closest("section");
+		console.log(section);
+		var h2 = section.querySelector("h2");
+		console.log(h2);
+		section.removeChild(h2);
+	}));   //bluenode에 있는 자료가 배열로 추가
+</script>
+</html>

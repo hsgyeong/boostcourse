@@ -56,5 +56,4 @@ INDEX VERSION 1.134+C:\Users\sksk0\Desktop\boostcourse\.metadata\.plugins\org.ec
 3262040863.index
 4072900777.index
 3743656111.index
-1152416045.index
 195693623.index

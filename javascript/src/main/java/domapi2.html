@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+<ul>
+	<li class="red">apple</li>
+	<li class="red">orange</li>
+	<li>banana</li>
+	<li>grape</li>
+	<li>strawberry</li>
+</ul>
+
+</body>
+<script>
+	var reds = document.querySelectorAll("li.red");
+	var parent = document.querySelector("ul");
+	
+	for(var i=0; i<reds.length; i++){
+		parent.removeChild(reds[i]);
+	}
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>dom api</h1>
+
+<ul>
+	<li>apple</li>
+	<li>orange</li>
+	<li>banana</li>
+	<li>grape</li>
+	<li>strawberry</li>
+</ul>
+</body>
+<script>
+/*	var mango = document.createElement("li"); 
+	var mangoText = document.createTextNode("망고");   //text node를 만들어준다.
+	mango.appendChild(mangoText);  //상위 엘리먼트인 mango의 appendChild로 망고 text를 넣어준다.  
+									//text 노드 상위에 망고 element node가 형성된다.
+    var parent = document.querySelector("ul");
+    
+    parent.appendChild(mango);
+    
+    var banana= document.querySelector("li:nth-child(3)");		
+   							
+	parent.insertBefore(mango, banana);
+	
+	var orange = document.querySelector("li:nth-child(2)");
+	orange.insertAdjacentHTML("afterend","<li>망고!</li>");
+*/
+	var strawberry = document.querySelector("li:nth-child(5)");
+	var apple = document.querySelector("li:nth-child(1)");
+	var parent = document.querySelector("ul");
+	
+	parent.insertBefore(apple, strawberry);
+	
+	
+</script>
+</html>
