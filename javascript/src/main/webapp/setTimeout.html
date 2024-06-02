@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+setTimeout(()=>{
+	console.log('현재시각은', new Date());
+}, 500);
+
+let count = 0;
+function animate(){
+	setTimeout(()=>{
+		if(count>=20) return;
+		console.log('현재시각은', new Date());
+		count++;
+		animate();
+	}, 500);
+}
+
+animate();	
+</script>
+</body>
+</html>
