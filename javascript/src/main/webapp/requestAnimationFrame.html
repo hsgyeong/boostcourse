@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.outside{
+	position: relative;
+	background-color: blueviolet;
+	width: 100px;
+	font-size: 0.8em;
+	color: white;
+}
+</style>
+</head>
+<body>
+<!--만약 div가 script 아래에 위치한다면 javascript 코드가 실행되는 시점에 document.getElementById('fruit')가
+	null을 반환한다. 스크립트가 실행될 때, 아직 DOM에 해당 요소가 존재하지 않기 때문이다.
+	이 문제를 해결하기 위해 스크립트를 div 요소 이후에 배치하거나 window.onload이벤트를 사용해서 
+	DOM이 완전히 로드된 후에 스크립트가 실행되도록 한다.-->
+<div class="outside" id="fruit">제가 좋아하는 과일은요..</div>
+<script>
+	var start = null;
+	var element = document.getElementById('fruit');
+	element.style.position = 'absolute';
+	
+	function step(timestamp){
+		if(!start) start = timestamp;
+		var progress = timestamp-start;
+		element.style.left = Math.min(progress/10, 200)+'px';
+		if(progress<2000){
+			window.requestAnimationFrame(step);
+		}
+	}
+	window.requestAnimationFrame(step);
+</script>
+</body>
+</html>

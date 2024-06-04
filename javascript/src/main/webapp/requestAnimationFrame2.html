@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.outside{
+	position: relative;
+	background-color: rgb(0, 128, 0);
+	width: 100px;
+	font-size: 0.8em;
+	color: white;
+}
+</style>
+</head>
+<body>
+<div class="outside" id="food">제가 좋아하는 음식은요..</div>
+<script>
+	var count = 0;
+	var el = document.querySelector(".outside");
+	el.style.left = "0px";
+	
+	function run(){
+		if(count > 30)return;
+		count = count + 1;
+		el.style.left = parseInt(el.style.left)+count+"px";
+		requestAnimationFrame(run);
+	}
+	
+	requestAnimationFrame(run);
+</script>
+</body>
+</html>
