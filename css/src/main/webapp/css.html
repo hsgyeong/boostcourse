@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.wrap{
+	margin: 50px;
+}
+.container{
+	width: 300px;
+}
+.h1{
+	color: lightgray;
+	font-size: 20px;
+	font-weight: 200;
+	padding: 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.box{
+	border-radius: 5px;
+	height: 40px;
+	margin: 50px auto;
+	width: 80px;
+}
+.box1{
+	background: mediumturquoise;
+}
+.box2{
+	background: #2b3f53;
+	transition: all 1s;
+	left: 100px;
+	position: relative;
+	
+}
+button{
+	width: 160px;
+	height: 40px;
+	border-radius: 4px;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+	var base = document.querySelector(".box2");
+	base.style.transform = "scale(2)";
+	base.style.left = "300px";
+})
+</script>
+</head>
+<body>
+<div class="wrap">
+	<div class="container">
+		<h1>Without transition</h1>
+		<div class="box1 box"></div>
+	</div>
+	<div class="container">
+		<h1>With transition</h1>
+		<div class="box2 box" style="left: 50px;"></div>
+	</div>
+	<button></button>
+</div>
+</body>
+<script src="test.js"></script>
+</html>
