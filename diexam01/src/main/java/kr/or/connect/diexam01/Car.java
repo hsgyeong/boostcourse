@@ -1,16 +1,23 @@
 package kr.or.connect.diexam01;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Car {
 
+	@Autowired		//autowired가 있기 때문에 굳이 set 메서드는 필요하지 않다.
 	private Engine v8;
 	
 	public Car() {
 		System.out.println("Car 생성자");
 	}
 	
+	
 	public void setEngine(Engine e) {
 		this.v8 = e;
 	}
+	
 	
 	public void run() {
 		System.out.println("엔진을 이용하여 달립니다.");
